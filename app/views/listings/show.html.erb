@@ -4,16 +4,14 @@
 <p><strong>Price:  $</strong><%= @listing.price %></p>
 
 <p>Comment(s):  (<%= @listing.comments.length %>)</p>
-<ul>
-  <% @listing.comments.each do |comment| %>
-    <li>Posted by: <%= User.find_by(:id => comment.user_id).name %></li>
-      <ul>
-        <li><%= comment.body %></li>
-      </ul>
-  <% end %>
 
-</ul>
-<%= form_for [@listing, @listing.comments.new] do |f|  %>
+<div id="comment_group">
+  <ul>
+    <%= render @listing.comments %>
+  </ul>
+</div>
+
+<%= form_for [@listing, @listing.comments.new], remote: true do |f|  %>
 
   <%= f.hidden_field :user_id, :value => current_user.id %>
   <%= f.hidden_field :listing_id, :value => @listing.id %>

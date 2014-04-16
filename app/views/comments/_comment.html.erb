@@ -1,0 +1,7 @@
+<li>
+  Posted by: <%= User.find_by(:id => comment.user_id).name %>
+</li>
+  <ul>
+    <li><%= comment.body %></li>
+  </ul>
+

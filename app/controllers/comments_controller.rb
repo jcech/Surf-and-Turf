@@ -5,13 +5,18 @@ class CommentsController < ApplicationController
   end
 
   def create
+    sleep 1
     @comment = Comment.new(comment_params)
     if @comment.save
-      redirect_to listing_path(@comment.listing_id)
+      respond_to do |format|
+        format.html { redirect_to listing_path(@comment.listing_id) }
+        format.js
+      end
     else
       render :back
     end
   end
+
 
 private
   def comment_params
