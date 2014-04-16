@@ -5,7 +5,6 @@ class CommentsController < ApplicationController
   end
 
   def create
-    sleep 1
     @comment = Comment.new(comment_params)
     if @comment.save
       respond_to do |format|

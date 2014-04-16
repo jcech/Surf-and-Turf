@@ -1,24 +1,27 @@
 <h2><%= @listing.name %></h2>
+  <h4>Posted By: <%= @listing.user.name.capitalize %></h4>
 </br>
-<h4><strong>Description: </strong><%= @listing.body %></h4>
-<p><strong>Price:  $</strong><%= @listing.price %></p>
+<h4><strong>Description: </strong></h4>
+  <p><%= @listing.body %></p>
+<p><strong>Price:  </strong>$<%= @listing.price %></p>
 
-<p>Comment(s):  (<%= @listing.comments.length %>)</p>
+<p><strong>Comment(s):</strong> (<%= @listing.comments.length %>)</p>
 
-<div id="comment_group">
-  <ul>
-    <%= render @listing.comments %>
-  </ul>
-</div>
 
-<%= form_for [@listing, @listing.comments.new], remote: true do |f|  %>
+<ul id="comment-group">
+  <%= render @listing.comments %>
+</ul>
 
-  <%= f.hidden_field :user_id, :value => current_user.id %>
-  <%= f.hidden_field :listing_id, :value => @listing.id %>
+<% if current_user.id != @listing.user_id %>
+  <%= form_for [@listing, @listing.comments.new], remote: true do |f|  %>
 
-  <div><%= f.label :body, "Review" %><br />
-  <%= f.text_area :body %></div>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.hidden_field :listing_id, :value => @listing.id %>
 
-  <div><%= f.submit "Add Comment" %></div>
+    <div><%= f.label :body, "Review" %><br />
+    <%= f.text_area :body %></div>
 
+    <div><%= f.submit "Add Comment" %></div>
+
+  <% end %>
 <% end %>
