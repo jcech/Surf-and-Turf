@@ -1,0 +1,8 @@
+
+development:
+  adapter: postgresql
+  database: surf_and_turf_development
+
+test:
+  adapter: postgresql
+  database: surf_and_turf_test
