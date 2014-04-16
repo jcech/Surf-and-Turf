@@ -12,6 +12,7 @@ gem 'bootstrap-sass'
 gem 'bootstrap-sass-extras'
 gem 'bcrypt'
 gem 'devise'
+gem 'textacular', '~> 3.0'
 
 group :development do
   gem 'better_errors'
@@ -27,6 +28,7 @@ group :test, :development do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'launchy'
+  gem 'faker'
 end
 
 group :test do
