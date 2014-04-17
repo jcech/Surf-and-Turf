@@ -13,6 +13,7 @@ gem 'bootstrap-sass-extras'
 gem 'bcrypt'
 gem 'devise'
 gem 'textacular', '~> 3.0'
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 
 group :development do
   gem 'better_errors'
