@@ -1,1 +1,3 @@
-<li> <%= link_to listing.name, listing_path(listing) %> | $<%= listing.price %></li>
+<ul class="row">
+  <li><%= image_tag listing.photos.first.pic(:thumb) %> <%= link_to listing.name, listing_path(listing) %> | $<%= listing.price %> per day</li>
+</ul>
