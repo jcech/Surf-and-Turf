@@ -6,4 +6,5 @@ SurfAndTurf::Application.routes.draw do
     resources :comments
   end
 
+  resources :searches, :only => [:index]
 end
