@@ -13,23 +13,22 @@
         <li>Logged in as <%= current_user.email %></li>
     <% end %>
     </ul>
-    <form class="navbar-form navbar-left">
-      <%= form_tag searches_path do %>
-        <%= text_field_tag :search %>
-      <%= submit_tag "Search", :class=>'btn btn-default' %>
+
+      <%= form_tag searches_path, method: :get, class: "navbar-form navbar-left" do %>
+        <%= text_field_tag :search, nil,
+          {:class => "search-query", :placeholder => "Search"} %>
+        <%= submit_tag "Search", :class=>'btn btn-default' %>
       <% end %>
-    </form>
+
     <ul class="nav navbar-nav navbar-right">
       <% if user_signed_in? %>
-      <li><%= link_to 'Add a Listing', new_listing_path %></li>
+        <li><%= link_to 'Add a Listing', new_listing_path %></li>
         <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
         <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
       <% else %>
         <li><%= link_to "Sign up", new_user_registration_path %></li>
         <li><%= link_to "Login", new_user_session_path %></li>
       <% end %>
-
-
     </ul>
   </div>
 </div>

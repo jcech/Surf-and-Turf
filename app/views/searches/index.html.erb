@@ -1,5 +1,7 @@
-<h2>Results</h2>
+<h2>Search Results</h2>
 
-<%= @searches.each do |search| %>
-  <%= search %>
-<% end %>
+  <% if @results.length != 0 %>
+    <%= render @results %>
+  <% else %>
+    <h3>No results found!</h3>
+  <% end %>
