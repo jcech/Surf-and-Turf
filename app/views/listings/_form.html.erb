@@ -10,5 +10,9 @@
 
   <%= f.hidden_field :user_id, :value => current_user.id %><br />
 
+  <%= f.fields_for :photos, @listing.photos.new do |ff| %>
+    <%= ff.file_field :pic %>
+  <% end %>
+
   <div><%= f.submit "Submit Listing" %></div>
 <% end %>

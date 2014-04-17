@@ -1,6 +1,7 @@
 <h2><%= @listing.name %></h2>
   <h4>Posted By: <%= @listing.user.name.capitalize %></h4>
 </br>
+<%= render @listing.photos %>
 <h4><strong>Description: </strong></h4>
   <p><%= @listing.body %></p>
 <p><strong>Price:  </strong>$<%= @listing.price %></p>

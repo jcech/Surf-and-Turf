@@ -9,13 +9,13 @@ class ListingsController < ApplicationController
   end
 
   def create
-    @listing = Listing.new(listing_params)
-    if @listing.save
+    @listing = Listing.create(listing_params)
+    # if @listing.save
       flash[:notice] = "Listing has been posted!"
       redirect_to root_url
-    else
-      render 'new'
-    end
+    # else
+    #   render 'new'
+    # end
   end
 
   def show
@@ -24,7 +24,7 @@ class ListingsController < ApplicationController
 
 private
   def listing_params
-    params.require(:listing).permit(:name, :body, :user_id, :price)
+    params.require(:listing).permit(:name, :body, :user_id, :price, photos_attributes: [:pic, :id])
   end
 
 end
